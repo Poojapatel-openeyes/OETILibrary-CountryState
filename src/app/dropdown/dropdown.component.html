@@ -1,0 +1,36 @@
+<table>
+<tr><td><br><a>Add Country & State</a></td></tr>
+<tr><td><br><a routerLink="/Country">Country</a></td></tr>
+<tr><td><a routerLink="/State">State</a></td></tr></table>
+<br><br>
+<table>
+<tr><td><br><a>Show dropdown in Country & State</a></td></tr>
+
+</table>
+<form  #DropdownForm="ngForm" (ngSubmit)="adddropdown(DropdownForm)">
+ <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+              <label><span class="required">*</span>Country</label>
+              <select class='select-option' (change)="getStateList(DropdownForm)" required class="form-control" #CountryId="ngModel"
+                     [(ngModel)]="DropdownEntity.CountryId" name="CountryId" [ngClass]="{red_border: (CountryId.dirty && CountryId.invalid) || (CountryId.pristine && submitted)}">
+                  <option value="">Select</option>
+              <option *ngFor="let country of CountryList" value="{{country.CountryId}}" ngSelected="DropdownEntity.CountryId==country.CountryId">{{country.CountryName}}</option></select>
+                       <span class="error_span"  *ngIf="(CountryId.dirty && CountryId.invalid) || (CountryId.pristine && submitted)"> 
+                          <span *ngIf="CountryId.errors.required || (CountryId.pristine && submitted)">Please select country </span>
+                      </span>
+            </div>
+          </div>
+          <div class="clearfix"></div>
+          <div class="col-md-6 col-sm-12">
+            <div class="form-group">
+              <label><span class="required">*</span>State</label>
+              <select class="form-control" #StateId="ngModel" [(ngModel)]="DropdownEntity.StateId" name="StateId" [ngClass]="{red_border: (StateId.dirty && StateId.invalid) || (StateId.pristine && submitted)}" required>  
+                <option value="" ngSelected='DropdownEntity.StateId==""'>Select</option>
+                <option *ngFor="let state of stateList" value="{{state.StateId}}" ngSelected="DropdownEntity.StateId==state.StateId">{{state.StateName}}</option>
+            </select>
+            <span class="error_span"  *ngIf="(StateId.dirty && StateId.invalid) || (StateId.pristine && submitted)"> 
+                            <span *ngIf="StateId.errors.required || (StateId.pristine && submitted)">Please select state </span>
+                        </span>
+            </div>
+          </div>
+			  </form>

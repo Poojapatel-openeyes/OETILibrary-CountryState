@@ -1,0 +1,29 @@
+<table>
+  <thead>
+    <tr>
+      <th style="width: 8%;">No.</th>
+      <th style="width: 8%;">Name</th>
+    <th style="width: 8%;">Abbreviation</th>
+      <th style="width: 8%;">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+    <tr *ngFor="let State of StateList;let i = index;">
+      <td style="width: 8%;">{{i+1}}</td>
+
+      <td style="width: 8%;">{{State.StateName}}</td>
+      <td style="width: 8%;">{{State.StateAbbreviation}}</td>
+
+
+      <td style="width: 8%;">
+        <button type="button" title="Edit" data-tooltip="Edit" routerLink="/State/edit/{{State.StateId}}">Edit</button>
+        <button type="button" title="Delete" data-tooltip="Delete" (click)="deleteState(State)">delete</button>
+      </td>
+    </tr>
+
+
+
+  </tbody>
+</table>

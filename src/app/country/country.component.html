@@ -1,0 +1,29 @@
+<!--<div class="col-lg-12">-->
+<form #CountryForm="ngForm" (ngSubmit)="addCountry(CountryForm)">
+  <table>
+    <tr>
+      <td><label><span>*</span>Country</label></td>
+      <td> <input type="text" #CountryName="ngModel" pattern="[a-zA-Z ]{2,}" maxlength="100" [(ngModel)]="CountryEntity.CountryName"
+          name="CountryName" required /> </td>
+
+    </tr>
+
+    <tr>
+      <td><label><span>*</span>Country Abbreviation</label></td>
+
+      <td><input type="text" #CountryAbbreviation="ngModel" pattern="[a-zA-Z]{2,}" maxlength="3" [(ngModel)]="CountryEntity.CountryAbbreviation"
+          name="CountryAbbreviation" required /></td>
+
+    </tr>
+
+
+
+    <tr>
+      <td rowspan="2">  <button type="submit"><span>Submit</span></button></td>
+    
+
+    </tr>
+  </table>
+</form>
+<br>
+<a routerLink="/State">Auditlog</a>

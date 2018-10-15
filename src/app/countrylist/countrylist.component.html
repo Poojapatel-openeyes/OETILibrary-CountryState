@@ -1,0 +1,29 @@
+<table>
+  <thead>
+    <tr>
+      <th style="width: 8%;">No.</th>
+      <th style="width: 8%;">Name</th>
+    <th style="width: 8%;">Abbreviation</th>
+      <th style="width: 8%;">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+    <tr *ngFor="let Country of CountryList;let i = index;">
+      <td style="width: 8%;">{{i+1}}</td>
+
+      <td style="width: 8%;">{{Country.CountryName}}</td>
+      <td style="width: 8%;">{{Country.CountryAbbreviation}}</td>
+
+
+      <td style="width: 8%;">
+        <button type="button" title="Edit" data-tooltip="Edit" routerLink="/Country/edit/{{Country.CountryId}}">Edit</button>
+        <button type="button" title="Delete" data-tooltip="Delete" (click)="deleteCountry(Country)">delete</button>
+      </td>
+    </tr>
+
+
+
+  </tbody>
+</table>
